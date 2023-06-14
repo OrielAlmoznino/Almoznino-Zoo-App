@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ZooDAL.Entities.Animal>
+
+@{
+    ViewData["Title"] = "Trending Animals";
+}
+
+<link href="~/css/cardextension.css" rel="stylesheet">
+
+<div class="container-fluid px-0">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-12 text-center px-0">
+            <div style="position: relative;">
+                <img src="~/images/hero.jpg" class="img-fluid" alt="Hero Image" style="max-height: 500px; width: 100%; filter: brightness(50%) contrast(1);">
+                <div class="d-flex flex-column align-items-center position-absolute top-50 start-50 translate-middle" style="transform: translate(-50%, -50%);">
+                    <h1 class="display-4 mb-4 text-white">Almoznino's Zoo</h1>
+                    <a href="@Url.Action("ShowCatalog", "Catalog")" class="btn btn-primary btn-lg">Explore Our Catalog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+        <hr />
+            <div class="row justify-content-center">
+                @foreach (var item in Model)
+                {
+     <div class="col-sm-6 col-md-4 mb-4">
+        <div class="card mb-4 shadow">
+             <img src="~/Images/@item.ImagePath" class="card-img-top" alt="Animal Image">
+             <div class="card-body">
+                <h5 class="card-title text-center">@item.Name</h5>
+                <p class="card-text text-center">Age: @item.Age</p>
+                <div class="text-center">
+                         <a href="@Url.Action("Details", "Catalog", new { id = item.Id })" class="btn btn-primary">Details</a>
+                    </div>
+                 </div>
+             </div>
+        </div>
+                }
+            </div>
+        </div>
+    </div>

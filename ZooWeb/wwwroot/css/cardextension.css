@@ -1,0 +1,13 @@
+﻿.card {
+    height: 100%;
+    transition: transform 0.2s;
+    border-radius: 40px;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+.custom-card {
+    margin-bottom: 20px;
+}

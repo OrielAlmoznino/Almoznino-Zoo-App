@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ZooDAL.Entities.Animal>
+
+@{
+    ViewData["Title"] = "Administrator";
+}
+<link href="~/css/cardextension.css" rel="stylesheet" />
+<div class="row justify-content-center">
+    <h1 class="row justify-content-center">@ViewData["Title"]</h1>
+    <hr />
+    <p class="d-grid gap-2 col-6 mx-auto">
+        <a asp-action="Create" class="btn btn-primary">Create Animal</a>
+    </p>
+    <hr />
+    <div class="row mt-4">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-3 custom-card">
+          <div class="card mb-4 shadow">
+        <img src="~/Images/@item.ImagePath" class="card-img-top" alt="Animal Image">
+        <div class="card-body">
+            <h5 class="card-title text-center">@item.Name</h5>
+            <p class="card-text text-center">Age: @item.Age</p>
+            <div class="text-center">
+                <a href="@Url.Action("Edit", "Admin", new { id = item.Id })" class="btn btn-secondary">Edit</a>
+                <a href="@Url.Action("Delete", "Admin", new { id = item.Id })" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+    }
+</div>
+</div>
