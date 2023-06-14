@@ -22,7 +22,7 @@ namespace ZooDAL.Services
         {
             return Path.Combine(_env.WebRootPath, "Images", fileName);
         }
-        public async Task<string> CreateImageFromUrl(string imageUrl)
+        public async Task<string> CreateImageFromUrl(string imageUrl, Guid uid)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -34,7 +34,7 @@ namespace ZooDAL.Services
                 string contentType = response.Content.Headers.ContentType?.MediaType;
                 string fileExtension = GetFileExtensionFromContentType(contentType);
 
-                string fileName = $"{Guid.NewGuid()}{fileExtension}";
+                string fileName = $"{uid}{fileExtension}";
                 string filePath = Path.Combine(_env.WebRootPath, "Images", fileName);
 
                 using (Image image = Image.Load(imageData))
@@ -47,10 +47,10 @@ namespace ZooDAL.Services
                 return fileName;
             }
         }
-        public async Task<string> CreateImageFromLocal(IFormFile file)
+        public async Task<string> CreateImageFromLocal(IFormFile file, Guid uid)
         {
             string fileExtension = Path.GetExtension(file.FileName);
-            string fileName = $"{Guid.NewGuid()}{fileExtension}";
+            string fileName = $"{uid}{fileExtension}";
 
             string filePath = Path.Combine(_env.WebRootPath, "Images", fileName);
 

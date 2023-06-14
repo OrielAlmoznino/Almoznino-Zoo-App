@@ -79,15 +79,16 @@ namespace ZooWeb.Controllers
             }
             try
             {
+                animal.Id = Guid.NewGuid();
                 // Process the selected option
                 if (selectedOption == "url")
                 {
-                    string result = await _imageService.CreateImageFromUrl(animal.ImagePath);
+                    string result = await _imageService.CreateImageFromUrl(animal.ImagePath, animal.Id);
                     animal.ImagePath = result;
                 }
                 else if (selectedOption == "upload")
                 {
-                    string result = await _imageService.CreateImageFromLocal(file);
+                    string result = await _imageService.CreateImageFromLocal(file, animal.Id);
                     animal.ImagePath = result;
                 }
 
@@ -99,7 +100,6 @@ namespace ZooWeb.Controllers
                 return View();
             }
         }
-
 
         // GET: AdminController/Edit/5
         public async Task<ActionResult> Edit(Guid id)
@@ -117,11 +117,46 @@ namespace ZooWeb.Controllers
         // POST: AdminController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Guid id, Animal animal)
+        public async Task<ActionResult> Edit(Guid id, Animal animal, IFormFile file)
         {
             if (id != animal.Id)
             {
                 return BadRequest(); // Return a 400 Bad Request status code if the IDs don't match
+            }
+
+            // Check the way user updates the image on the website
+            string selectedOption = Request.Form["imageOption"];
+            string currentImage = animal.ImagePath;
+
+
+            if (selectedOption == "upload")
+            {
+                ModelState.Remove("ImagePath");
+
+                if (file == null || file.Length == 0)
+                {
+                    var categories = await _categoryService.GetAllAsync();
+                    ViewBag.Categories = new SelectList(categories, "Id", "Name");
+                    ModelState.AddModelError("file", "Please select an image file.");
+                    return View(animal);
+                }
+            }
+            else if (selectedOption == "url")
+            {
+                ModelState.Remove("file");
+                animal.ImagePath = Request.Form["imageURL"];
+
+                if (!Uri.IsWellFormedUriString(animal.ImagePath, UriKind.Absolute))
+                {
+                    ModelState.AddModelError("ImagePath", "Invalid image URL.");
+                    var categories = await _categoryService.GetAllAsync();
+                    ViewBag.Categories = new SelectList(categories, "Id", "Name");
+                    return View(animal);
+                }
+            }
+            else if (selectedOption == "current")
+            {
+                ModelState.Remove("file");
             }
 
             if (!ModelState.IsValid)
@@ -131,9 +166,17 @@ namespace ZooWeb.Controllers
 
             try
             {
-                if (Uri.IsWellFormedUriString(animal.ImagePath, UriKind.Absolute))
+                // Process the selected option
+                if (selectedOption == "url")
                 {
-                    string result = await _imageService.CreateImageFromUrl(animal.ImagePath);
+                    await _imageService.DeleteImage(currentImage);
+                    string result = await _imageService.CreateImageFromUrl(animal.ImagePath, animal.Id);
+                    animal.ImagePath = result;
+                }
+                else if (selectedOption == "upload")
+                {
+                    await _imageService.DeleteImage(currentImage);
+                    string result = await _imageService.CreateImageFromLocal(file, animal.Id);
                     animal.ImagePath = result;
                 }
 
