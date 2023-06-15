@@ -71,9 +71,9 @@ namespace ZooDAL.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("30a677e5-51c8-4240-a8a6-7f3b986290b2"), "Monkeys" },
-                    { new Guid("55312742-a7eb-4e65-9455-a2d00c0ab042"), "Cats" },
-                    { new Guid("ca3c26b5-b4de-4609-b12f-0ddfd10a6b89"), "Birds" }
+                    { new Guid("520b44cf-16f8-4625-a3b8-8864bc9fa57f"), "Cats" },
+                    { new Guid("597a4fa6-2039-49b1-8679-9fcba9d43786"), "Birds" },
+                    { new Guid("b23b8e9d-50de-44ae-a7ad-c73053b1ba06"), "Monkeys" }
                 });
 
             migrationBuilder.InsertData(
@@ -81,15 +81,15 @@ namespace ZooDAL.Migrations
                 columns: new[] { "Id", "Age", "CategoryID", "Description", "ImagePath", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("16036593-0613-4393-9374-fb299389e960"), 10, new Guid("30a677e5-51c8-4240-a8a6-7f3b986290b2"), "Orangutan description", "0ed86487-a07f-4c21-8fb8-3751215bef68.jpg", "Orangutan" },
-                    { new Guid("21ff3c66-77cc-4bfd-a03c-58e6c330f9da"), 2, new Guid("ca3c26b5-b4de-4609-b12f-0ddfd10a6b89"), "Penguin description", "10b02f99-82cb-45a2-9f6f-9ff5b93aecfa.jpg", "Penguin" },
-                    { new Guid("492db2e8-a2e5-45e1-85a1-58e2f3a206c5"), 5, new Guid("ca3c26b5-b4de-4609-b12f-0ddfd10a6b89"), "Parrot description", "a0b05188-fb1b-4409-8308-2a3e24d4ca9e.jpg", "Parrot" },
-                    { new Guid("5fedfbff-9c1a-48dc-b381-aff5ef8f7b0f"), 7, new Guid("55312742-a7eb-4e65-9455-a2d00c0ab042"), "Tiger description", "d15b6b92-391b-43ea-a55f-31e8f4cd163f.jpg", "Tiger" },
-                    { new Guid("8777a0f6-a25f-4757-b0f3-ec7d69cd0fa1"), 6, new Guid("55312742-a7eb-4e65-9455-a2d00c0ab042"), "Cheetah description", "433a2c09-520b-48c1-a7bc-1e6b9c62ba12.jpg", "Cheetah" },
-                    { new Guid("99fcacd2-0809-4d13-8b7d-a49fdb87ed2d"), 12, new Guid("30a677e5-51c8-4240-a8a6-7f3b986290b2"), "Gorilla description", "7741d954-515d-4222-a66b-d8f23273ea2c.jpg", "Gorilla" },
-                    { new Guid("c1f7583a-2949-46cb-9e82-12d8ec0fc3c9"), 3, new Guid("ca3c26b5-b4de-4609-b12f-0ddfd10a6b89"), "Eagle description", "4eb9ea13-b0c3-4144-be0c-0d1eff68aa7b.jpg", "Eagle" },
-                    { new Guid("c38f8d0b-3f7b-43c2-8117-86c3e39fe374"), 8, new Guid("30a677e5-51c8-4240-a8a6-7f3b986290b2"), "Chimpanzee description", "475027aa-44ba-4ce3-8a75-b3c261599b0d.jpg", "Chimpanzee" },
-                    { new Guid("ded177ed-d47b-4de1-9aa7-d6e20a204a79"), 4, new Guid("55312742-a7eb-4e65-9455-a2d00c0ab042"), "Lion description", "2021be47-0f90-4053-bb1a-d939bde5bc7f.jpg", "Lion" }
+                    { new Guid("03e0bc3e-54ed-4fe9-9894-f6f80a3c8e5a"), 2, new Guid("597a4fa6-2039-49b1-8679-9fcba9d43786"), "Penguin description", "10b02f99-82cb-45a2-9f6f-9ff5b93aecfa.jpg", "Penguin" },
+                    { new Guid("361c8cde-8213-4466-b124-0729d2f9cb5e"), 12, new Guid("b23b8e9d-50de-44ae-a7ad-c73053b1ba06"), "Gorilla description", "7741d954-515d-4222-a66b-d8f23273ea2c.jpg", "Gorilla" },
+                    { new Guid("5bd37101-03a7-4862-b330-4663b0da880a"), 8, new Guid("b23b8e9d-50de-44ae-a7ad-c73053b1ba06"), "Chimpanzee description", "475027aa-44ba-4ce3-8a75-b3c261599b0d.jpg", "Chimpanzee" },
+                    { new Guid("8944349c-5d99-4eb1-bd74-5572f99c49fd"), 10, new Guid("b23b8e9d-50de-44ae-a7ad-c73053b1ba06"), "Orangutan description", "0ed86487-a07f-4c21-8fb8-3751215bef68.jpg", "Orangutan" },
+                    { new Guid("8c414e57-752a-4f01-8ff2-750353f0dc79"), 4, new Guid("520b44cf-16f8-4625-a3b8-8864bc9fa57f"), "Lion description", "2021be47-0f90-4053-bb1a-d939bde5bc7f.jpg", "Lion" },
+                    { new Guid("9a711fee-6d32-4ed0-b1d6-a5f4958d2208"), 5, new Guid("597a4fa6-2039-49b1-8679-9fcba9d43786"), "Parrot description", "492db2e8-a2e5-45e1-85a1-58e2f3a206c5.jpg", "Parrot" },
+                    { new Guid("c49c8581-5aee-4085-99e5-99dbc20ff046"), 6, new Guid("520b44cf-16f8-4625-a3b8-8864bc9fa57f"), "Cheetah description", "433a2c09-520b-48c1-a7bc-1e6b9c62ba12.jpg", "Cheetah" },
+                    { new Guid("cf058ebc-a989-441a-b89b-5a0de8e95e13"), 3, new Guid("597a4fa6-2039-49b1-8679-9fcba9d43786"), "Eagle description", "4eb9ea13-b0c3-4144-be0c-0d1eff68aa7b.jpg", "Eagle" },
+                    { new Guid("e080540d-e961-44a3-ac92-304a0832f47a"), 7, new Guid("520b44cf-16f8-4625-a3b8-8864bc9fa57f"), "Tiger description", "d15b6b92-391b-43ea-a55f-31e8f4cd163f.jpg", "Tiger" }
                 });
 
             migrationBuilder.InsertData(
@@ -97,17 +97,17 @@ namespace ZooDAL.Migrations
                 columns: new[] { "Id", "AnimalID", "Content" },
                 values: new object[,]
                 {
-                    { new Guid("343cea39-c4ba-49fd-86fc-571fef39bc54"), new Guid("99fcacd2-0809-4d13-8b7d-a49fdb87ed2d"), "The gorilla's expressive eyes captivate everyone!" },
-                    { new Guid("497bb370-ba28-48cb-88b7-86957b659d3c"), new Guid("99fcacd2-0809-4d13-8b7d-a49fdb87ed2d"), "The gorilla's intelligence shines through!" },
-                    { new Guid("4ccaa7ff-62b6-43c6-9b59-3bb91a13cabb"), new Guid("ded177ed-d47b-4de1-9aa7-d6e20a204a79"), "This lion is amazing!" },
-                    { new Guid("4ef1675e-3c4f-4435-a697-d9241086c891"), new Guid("21ff3c66-77cc-4bfd-a03c-58e6c330f9da"), "The penguin waddles with cuteness!" },
-                    { new Guid("79487688-7f92-4861-a2e7-c0bc84ffd142"), new Guid("99fcacd2-0809-4d13-8b7d-a49fdb87ed2d"), "The gorilla's gentle nature is heartwarming!" },
-                    { new Guid("bb39c1ed-dcd0-4b7b-a384-ea04f57e1177"), new Guid("99fcacd2-0809-4d13-8b7d-a49fdb87ed2d"), "The gorilla's interactions with its family are fascinating!" },
-                    { new Guid("bd4c78be-d484-487b-be58-eeffa37945cb"), new Guid("ded177ed-d47b-4de1-9aa7-d6e20a204a79"), "The lion's majestic beauty is breathtaking!" },
-                    { new Guid("e5f0e819-2d01-4aae-949e-47f06d426cbd"), new Guid("c1f7583a-2949-46cb-9e82-12d8ec0fc3c9"), "The eagle is soaring through the sky with grace!" },
-                    { new Guid("e87faaa7-8b7d-4609-aef0-52b0e8950c13"), new Guid("21ff3c66-77cc-4bfd-a03c-58e6c330f9da"), "The penguin's sleek feathers are mesmerizing!" },
-                    { new Guid("f3fb2c6f-019b-470f-bcb1-a6b7e65df3bb"), new Guid("99fcacd2-0809-4d13-8b7d-a49fdb87ed2d"), "The gorilla's strength is awe-inspiring!" },
-                    { new Guid("f67ad7fe-1151-4b14-a403-1e911f0b587c"), new Guid("ded177ed-d47b-4de1-9aa7-d6e20a204a79"), "I'm in awe of this incredible lion!" }
+                    { new Guid("0c4831d4-ec24-476e-bf87-ed957dcb4e4a"), new Guid("361c8cde-8213-4466-b124-0729d2f9cb5e"), "The gorilla's interactions with its family are fascinating!" },
+                    { new Guid("0eb588ee-c116-483b-9175-87f589f8253c"), new Guid("03e0bc3e-54ed-4fe9-9894-f6f80a3c8e5a"), "The penguin waddles with cuteness!" },
+                    { new Guid("28d71b5e-bdff-42ad-b050-c849f4b38dbc"), new Guid("8c414e57-752a-4f01-8ff2-750353f0dc79"), "The lion's majestic beauty is breathtaking!" },
+                    { new Guid("3899a556-78e1-42a9-be13-4e0e13842fff"), new Guid("361c8cde-8213-4466-b124-0729d2f9cb5e"), "The gorilla's strength is awe-inspiring!" },
+                    { new Guid("4647eac2-85b3-45a4-9447-8d3b7671d585"), new Guid("361c8cde-8213-4466-b124-0729d2f9cb5e"), "The gorilla's intelligence shines through!" },
+                    { new Guid("53f90afa-3174-40b7-a016-cc574188c191"), new Guid("361c8cde-8213-4466-b124-0729d2f9cb5e"), "The gorilla's expressive eyes captivate everyone!" },
+                    { new Guid("70fdc07c-9370-4451-963a-93d3fb378de4"), new Guid("8c414e57-752a-4f01-8ff2-750353f0dc79"), "I'm in awe of this incredible lion!" },
+                    { new Guid("847a785c-c237-494e-9749-b5506497b9e8"), new Guid("03e0bc3e-54ed-4fe9-9894-f6f80a3c8e5a"), "The penguin's sleek feathers are mesmerizing!" },
+                    { new Guid("91431acc-3f1e-4468-bb07-a05c4428110d"), new Guid("cf058ebc-a989-441a-b89b-5a0de8e95e13"), "The eagle is soaring through the sky with grace!" },
+                    { new Guid("d23ad862-00da-4ec9-9219-ae677fed792b"), new Guid("361c8cde-8213-4466-b124-0729d2f9cb5e"), "The gorilla's gentle nature is heartwarming!" },
+                    { new Guid("e96e9520-1b38-4c4e-8a31-ed7a3cc42d58"), new Guid("8c414e57-752a-4f01-8ff2-750353f0dc79"), "This lion is amazing!" }
                 });
 
             migrationBuilder.CreateIndex(

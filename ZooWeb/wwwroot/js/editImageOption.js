@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     let imagePathInput = $("#imagePath");
+    let imageURLInput = $("#url");
     let fileInput = $("#file");
 
     function toggleImageOptions() {
@@ -11,8 +12,9 @@
         let isUrlSelected = imageOptionUrl.prop("checked");
         let isUploadSelected = imageOptionUpload.prop("checked");
 
-        imagePathInput.prop("disabled", !isUrlSelected);
-        fileInput.prop("disabled", !isUploadSelected);
+        imagePathInput.prop("disabled", isUrlSelected || isUploadSelected);
+        imageURLInput.prop("disabled", !isUrlSelected);
+        fileInput.prop("disabled", isUrlSelected || isCurrentImageSelected);
 
         // Show/hide error message
         let imageError = $("#imageError");

@@ -37,21 +37,21 @@
                     <input class="form-check-input" type="radio" name="imageOption" id="imageOptionCurrent" value="current" checked>
                     <label class="form-check-label" for="imageOptionCurrent">Current Image:</label>
                     <div>
-                        <img src="~/Images/@Model.ImagePath" name="currentImage" alt="Current Image" width="250" height="200">
+                        <img src="~/Images/@Model.ImagePath" id="imagePath" name="currentImage" alt="Current Image" width="250" height="200">
                     </div>
                     <input type="hidden" asp-for="ImagePath" value="@Model.ImagePath">
                 </div>
                 <div class="image-options">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="imageOption" id="imageOptionUrl" value="url">
-                        <label class="form-check-label" for="imageOptionUrl">Image URL:</label>
-                        <input type="text" class="form-control" name="imageURL" placeholder="Enter image URL">
+                        <label class="form-check-label" for="imageURL">Image URL:</label>
+                        <input type="text" class="form-control" id="url" name="imageURL" placeholder="Enter image URL">
                         <span asp-validation-for="ImagePath" class="text-danger"></span>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="imageOption" id="imageOptionUpload" value="upload">
                         <label class="form-check-label" for="imageOptionUpload">Upload Image:</label>
-                        <input type="file" class="form-control-file" id="file" name="file" disabled>
+                        <input type="file" class="form-control-file" id="file" name="file">
                         @Html.ValidationMessage("file", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -80,7 +80,7 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="~/js/editimageoption.js"></script>
+<script src="~/js/editimageOption.js"></script>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
