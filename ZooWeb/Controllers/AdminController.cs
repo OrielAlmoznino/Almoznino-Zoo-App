@@ -151,6 +151,7 @@ namespace ZooWeb.Controllers
                     ModelState.AddModelError("ImagePath", "Invalid image URL.");
                     var categories = await _categoryService.GetAllAsync();
                     ViewBag.Categories = new SelectList(categories, "Id", "Name");
+                    animal.ImagePath = currentImage;
                     return View(animal);
                 }
             }

@@ -24,7 +24,7 @@ namespace ZooDAL
             modelBuilder.Entity<Category>().HasData(Birds, Monkeys, Cats);
 
             var Penguin = new Animal { Id = Guid.NewGuid(), Name = "Penguin", Age = 2, Description = "Penguin description", CategoryID = Birds.Id, ImagePath = "10b02f99-82cb-45a2-9f6f-9ff5b93aecfa.jpg" };
-            var Parrot = new Animal { Id = Guid.NewGuid(), Name = "Parrot", Age = 5, Description = "Parrot description", CategoryID = Birds.Id, ImagePath = "492db2e8-a2e5-45e1-85a1-58e2f3a206c5.jpg" };
+            var Parrot = new Animal { Id = Guid.NewGuid(), Name = "Parrot", Age = 5, Description = "Parrot description", CategoryID = Birds.Id, ImagePath = "9a711fee-6d32-4ed0-b1d6-a5f4958d2208.jpg" };
             var Eagle = new Animal { Id = Guid.NewGuid(), Name = "Eagle", Age = 3, Description = "Eagle description", CategoryID = Birds.Id, ImagePath = "4eb9ea13-b0c3-4144-be0c-0d1eff68aa7b.jpg" };
 
             var Chimpanzee = new Animal { Id = Guid.NewGuid(), Name = "Chimpanzee", Age = 8, Description = "Chimpanzee description", CategoryID = Monkeys.Id, ImagePath = "475027aa-44ba-4ce3-8a75-b3c261599b0d.jpg" };
